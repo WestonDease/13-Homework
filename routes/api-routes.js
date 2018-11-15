@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   //get routes
   app.get('/api/task', function(req, res) {
-    db.Event.find({})
+    db.Task.find({})
     .then(function(data) {
       res.json(data);
     })
@@ -21,7 +21,7 @@ module.exports = function(app) {
   
   app.get('/api/task/:task', function(req, res) {
     const matchingTasks = [];
-    db.Event.find({})
+    db.Task.find({})
     .then(function(data) {
       data.forEach(task => {
         if (task.description === req.params.task){
@@ -36,12 +36,14 @@ module.exports = function(app) {
   });
   
   // post routes
-  app.post('/api/Task', function(req, res) {
-    db.Event.create(req.body)
-    .then(function(dbItem) {
-      return res.json(dbItem);
-    })
+  app.post('/api/task', function(req, res) {
+    console.log(req.body);
+    db.Task.create(req.body)
+    // .then(function(dbItem) {
+    //   return res.json(dbItem);
+    // })
     .then(function(data) {
+      console.log(data);
       res.json(data);
     })
     .catch(function(err) {
@@ -64,7 +66,19 @@ module.exports = function(app) {
   //delete routes
   app.delete('/api/task/:task', function(req, res) {
     console.log(req.params.task);
-    db.Event.findOneAndDelete({description: req.params.task})
+    db.Task.findOneAndDelete({description: req.params.task})
+    .then(function(dbItem) {
+      console.log(dbItem);
+      return res.json(dbItem);
+    })
+      .catch(function(err) {
+      res.json(err);
+    });
+  });
+
+  app.delete('/api/task/:id', function(req, res) {
+    console.log(req.params.task);
+    db.Task.findOneAndDelete({_id: req.params.id})
     .then(function(dbItem) {
       console.log(dbItem);
       return res.json(dbItem);
