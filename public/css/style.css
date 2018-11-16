@@ -17,4 +17,35 @@
   .edit {
     width: 100%;
   }
+
+#date {
+  justify-content: center;
+  display: grid;
+  grid-template-rows: repeat(2, 1 fr);
+  grid-template-columns: repeat(3, 1 fr);
+}
+
+#day-of-week {
+  display: grid;
+  grid-row: span 2;
+  grid-column: span  1;
+}
+
+#month {
+  display: grid;
+  grid-row: span  1;
+  grid-column: span  1;
+}
+
+#day {
+  display: grid;
+  grid-row: span  1;
+  grid-column: span  1;
+}
+
+#year {
+  display: grid;
+  grid-row: span  2;
+  grid-column: span  1;
+}
   

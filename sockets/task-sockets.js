@@ -1,5 +1,4 @@
 const users = {}
-
 module.exports = function(io){
     io.on('connection', function(socket){
         console.log('connected');
@@ -12,7 +11,8 @@ module.exports = function(io){
         });
 
         socket.on('new-todo', function(newData){
-            console.log(newData);
+            //console.log(newData);
+            console.log("death");
             io.emit("new-todo", newData);
             // const socket1 = users[newData.user1];
             // const socket2 = users[newData.user2];

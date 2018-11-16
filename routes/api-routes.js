@@ -37,13 +37,13 @@ module.exports = function(app) {
   
   // post routes
   app.post('/api/task', function(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
     db.Task.create(req.body)
     // .then(function(dbItem) {
     //   return res.json(dbItem);
     // })
     .then(function(data) {
-      console.log(data);
+      //console.log(data);
       res.json(data);
     })
     .catch(function(err) {
@@ -55,7 +55,7 @@ module.exports = function(app) {
   app.put('/api/task/:task', function(req, res) {
     db.Task.findOneAndUpdate({description: req.params.task}, { $set: { description: req.body.description , check: req.body.check } }, { new: true })
     .then(function(dbItem) {
-      console.log(dbItem);
+      //console.log(dbItem);
       return res.json(dbItem);
     })
       .catch(function(err) {
@@ -65,10 +65,10 @@ module.exports = function(app) {
 
   //delete routes
   app.delete('/api/task/:task', function(req, res) {
-    console.log(req.params.task);
+    //console.log(req.params.task);
     db.Task.findOneAndDelete({description: req.params.task})
     .then(function(dbItem) {
-      console.log(dbItem);
+      //console.log(dbItem);
       return res.json(dbItem);
     })
       .catch(function(err) {
@@ -77,10 +77,10 @@ module.exports = function(app) {
   });
 
   app.delete('/api/task/:id', function(req, res) {
-    console.log(req.params.task);
+    //console.log(req.params.task);
     db.Task.findOneAndDelete({_id: req.params.id})
     .then(function(dbItem) {
-      console.log(dbItem);
+      //console.log(dbItem);
       return res.json(dbItem);
     })
       .catch(function(err) {

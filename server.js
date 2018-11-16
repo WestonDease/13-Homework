@@ -7,6 +7,9 @@ var bodyParser = require("body-parser");
 
 const app = express();
 
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
 // const routes = require('./routes/api-routes.js');
 
 // Defines a PORT for the server to listen for requests
@@ -18,8 +21,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Sets our server to use the public directory for static assets
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+
+app.get('/', function(request, response) {
+    response.sendFile(path.join(__dirname, "./index.html"));
+  });
+
 require('./routes/api-routes.js')(app);
+require('./sockets/task-sockets.js')(io);
+
 
 mongoose.Promise = global.Promise;
 
@@ -33,10 +43,6 @@ mongoose.connect(
         useNewUrlParser: true
     }
 );
-
-app.get('/', function(request, response) {
-    response.sendFile(path.join(__dirname, "./index.html"));
-  });
 
 // Starts our server on the predefined PORT
 app.listen(PORT, function(){
