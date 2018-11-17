@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 const app = express();
 
 const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+const io = require('socket.io').listen(server);
 
 // const routes = require('./routes/api-routes.js');
 
@@ -45,6 +45,6 @@ mongoose.connect(
 );
 
 // Starts our server on the predefined PORT
-app.listen(PORT, function(){
+server.listen(PORT, function(){
   console.log(`App is now listening on PORT ${PORT}`)
 });

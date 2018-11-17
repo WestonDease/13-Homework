@@ -19,7 +19,7 @@
   }
 
 #date {
-  justify-content: center;
+  /*justify-content: center;*/
   display: grid;
   grid-template-rows: repeat(2, 1 fr);
   grid-template-columns: repeat(3, 1 fr);
