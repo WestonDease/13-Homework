@@ -26,7 +26,18 @@ $(document).ready(function() {
 
     socket.on('check-todo', function(data) {
         console.log(data);
-        toggleComplete();
+        let newdo = data;
+      console.log(newdo.check);
+      if(newdo.check >= 2){
+        let id = newdo.description;
+        console.log(id);
+        $.ajax({
+          method: "DELETE",
+          url: "/api/task/" + id
+        }).then(getTodos);
+      } else {
+      updateTodo(newdo);
+      }
     })
   
     // This function resets the todos displayed with new todos from the database

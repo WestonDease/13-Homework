@@ -1,3 +1,37 @@
+header {
+  font-family: 'Courier New', Courier, monospace;
+  opacity: .5;
+  margin-top: 10%;
+  margin-left: 5%;
+  color: white;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-left: 5%;
+  color: white;
+}
+.container {
+  position: fixed;
+}
+
+body {
+  background: url(../images/lethal-league-blaze-release-date-2.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 100%;
+}
+
+.list-group-item {
+  margin-left: 100%;
+  width: 900px;
+  height: 900px;
+  margin-top: -200px
+  
+}
+
+/*
 .todo-list {
     margin: 0 auto;
     margin-top: 75px;
@@ -16,10 +50,10 @@
   
   .edit {
     width: 100%;
-  }
+  } */
 
 #date {
-  /*justify-content: center;*/
+  justify-content: center;
   display: grid;
   grid-template-rows: repeat(2, 1 fr);
   grid-template-columns: repeat(3, 1 fr);
