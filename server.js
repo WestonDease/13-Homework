@@ -25,6 +25,7 @@ app.use(express.static('public'));
 
 app.get('/', function(request, response) {
     response.sendFile(path.join(__dirname, "./index.html"));
+    console.log("here i am");
   });
 
 require('./routes/api-routes.js')(app);

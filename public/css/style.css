@@ -25,10 +25,13 @@ body {
 
 .list-group-item {
   margin-left: 100%;
-  width: 900px;
+  width: 200%;
   height: 900px;
-  margin-top: -200px
-  
+  margin-top: -38%;
+}
+
+.new-item {
+  width: 50%;
 }
 
 /*
