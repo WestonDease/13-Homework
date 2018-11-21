@@ -136,12 +136,12 @@ $(document).ready(function() {
       var $newInputRow = $(
         [
           "<li class='list-group-item todo-item'>",
+          "<button class='complete btn btn-primary'>✓</button>",
           "<span>",
           todo.description,
           "</span>",
           "<input type='text' class='edit' style='display: none;'>",
           //"<button class='delete btn btn-danger'>x</button>",
-          "<button class='complete btn btn-primary'>✓</button>",
           "</li>"
         ].join("")
       );
