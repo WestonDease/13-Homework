@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Weston's Todo App</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lumen/bootstrap.min.css" />
     <link rel="stylesheet" href="css/reset.css" media="screen" title="no title">
     <link rel="stylesheet" href="css/new-style.css" media="screen" title="no title">
@@ -13,15 +13,17 @@
 </head>
 <body>
   <div id="decorate">
+    <div id="title">
         <Header>Weston's</Header>
         <h1>TO DO LIST</h1>
+    </div>
   </div>
         <div id="inputs">
+            <span class="todo-container"></span>
             <form id="todo-form">  
                       <input class="new-item form-control" placeholder="New to do" type="text" />
                       <button type="submit" class="btn btn-success">Add Todo</button>
             </form>
-            <span class="todo-container"></span>
         </div>
 
       <!--SCRIPTS-->

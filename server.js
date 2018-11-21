@@ -24,8 +24,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/', function(request, response) {
-    response.sendFile(path.join(__dirname, "./index.html"));
-    console.log("here i am");
+    response.sendFile(path.join(__dirname, "./public/new-index.html"));
   });
 
 require('./routes/api-routes.js')(app);
