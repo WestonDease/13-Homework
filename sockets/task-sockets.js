@@ -11,7 +11,7 @@ module.exports = function(io){
         });
 
         socket.on('new-todo', function(newData){
-            //console.log(newData);
+            console.log("incoming new todo", newData);
             io.emit("new-todo", newData);
             // const socket1 = users[newData.user1];
             // const socket2 = users[newData.user2];

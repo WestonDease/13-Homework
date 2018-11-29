@@ -20,6 +20,7 @@ $(document).ready(function() {
 
 
     socket.on('new-todo', function(data){
+        console.log("NEVER");
         console.log(data);
         getTodos();
     });
@@ -38,7 +39,7 @@ $(document).ready(function() {
       } else {
       updateTodo(newdo);
       }
-    })
+    });
   
     // This function resets the todos displayed with new todos from the database
     function initializeRows() {
@@ -54,7 +55,7 @@ $(document).ready(function() {
     function getTodos() {
       $.get("/api/task", function(data) {
         todos = data;
-        console.log(todos);
+        console.log("todos:", data);
         initializeRows();
       });
     }
@@ -88,7 +89,7 @@ $(document).ready(function() {
       socket.emit('check-todo', todo);
       console.log(todo.check);
       if(todo.check >= 2){
-        let id = $(this).parent().text().slice(0, -1);
+        let id = $(this).parent().text().slice(1, $(this).parent().text().length);
         console.log(id);
         $.ajax({
           method: "DELETE",
@@ -164,6 +165,7 @@ $(document).ready(function() {
       };
 
       $.post("/api/task", todo, getTodos);
+      console.log("new todo entered", todo);
       socket.emit('new-todo', todo);
 
       $newItemInput.val("");
